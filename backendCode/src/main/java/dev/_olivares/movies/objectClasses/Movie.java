@@ -1,4 +1,4 @@
-package dev._olivares.movies;
+package dev._olivares.movies.objectClasses;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 // This is our documents object
 // this will hold each of our movies when we pull our data down from the data base
 // to get started we need to create a field for each property of a movie
-@Document(collection = "movies")
+@Document(collection = "Movies")
 // import Data
 // comes from lombok
 // takes care of creating our getters and setters for our project so we dont

@@ -1,4 +1,4 @@
-package dev._olivares.movies;
+package dev._olivares.movies.objectClasses;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -9,7 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 // annotations
-@Document(collection = "reviews")
+@Document(collection = "Reviews")
 // just like before import a dependency that creates our projects getters and
 // setters
 @Data
@@ -23,4 +23,8 @@ public class Review {
     @Id
     private ObjectId id;
     private String body;
+
+    public Review(String reviewBody) {
+        this.body = reviewBody;
+    }
 }
