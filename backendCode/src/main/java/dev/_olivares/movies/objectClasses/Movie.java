@@ -48,6 +48,15 @@ public class Movie {
     // *need to look into this for more information*
     // pretty much our data base will now create a bridge between our reviews
     // collections and movies collection
+
+    // A DocumentReference allows referencing entities in MongoDB using a flexible
+    // schema. While the goal is the same as when using DBRef, the store
+    // representation is different. The reference can be anything, a single value,
+    // an entire Document, basically everything that can be stored in MongoDB. By
+    // default, the mapping layer will use the referenced entities id value for
+    // storage and retrieval.
+    // Documentation Link:
+    // https://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/mapping/DocumentReference.html
     @DocumentReference
     private List<Review> reviewIds;
 

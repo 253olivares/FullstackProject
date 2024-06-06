@@ -1,5 +1,7 @@
 package dev._olivares.movies.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -22,6 +24,12 @@ public class ReviewService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    public List<Review> allReviews() {
+        // call our repository and tell it to fetch every data entry in our reviews
+        // collection
+        return reviewRepository.findAll();
+    }
+
     // create review method will be called whenever a user submits a review
     // when its called we will grab the review body and the imdbId the review is
     // being placed under
@@ -37,7 +45,7 @@ public class ReviewService {
         // reviewIds
         // continue reading over at the mongoTemplate variable to learn more
 
-        // this is an udpate to our previous defined methods and objects where we
+        // this is an update to our previous defined methods and objects where we
         // created a review instance and then insert it into the database
         // instead of doing these 2 operations separately we want to do these methods
         // together at once to make sure we have an id when passing our review into our
