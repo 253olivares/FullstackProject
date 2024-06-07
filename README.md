@@ -16,7 +16,9 @@ This will start our backend api assuming the connected mondodb is set up properl
 ####  CURRENT API Maps
 
 Current Home of all our collections
+
 **GET** localhost:8080/api/v1/movies - Fetch all our movies from our Movies collection in mongoDB
+
 **GET** localhost:8080/api/v1/reviews - Fetch all our reviews from our Reviews collection in mongoDB
 
 **Get** localhost:8080/api/v1/movies/${id} - Fetches our select movie based on the id provided. Java grabs our id and fetches it from the mongodb using spring
