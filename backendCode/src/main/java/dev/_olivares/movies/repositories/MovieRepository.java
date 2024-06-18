@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import dev._olivares.movies.objectClasses.Movie;
 
 // Our repository is our data access layer
-// this is the later where we get data from our server
+// this is the layer where we get data from our server
 // this is done by extending our mongoRepository 
 // if we click on mongoRepository it comes we preMade methods that insert,save, findall, findOne data values in our data base
 // since we provided our login keys it can login automatically and run select commands
