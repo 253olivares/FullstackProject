@@ -17,3 +17,17 @@
 FROM openjdk:22-slim
 COPY target/*jar app.jar
 ENTRYPOINT [ "java","-jar","app.jar" ]
+
+# FROM maven:3.9.6 AS Build
+
+# COPY . .
+
+# RUN mvn clean package
+
+# FROM openjdk:22-jdk-slim
+
+# COPY --from=build /target/movies-0.0.1-SNAPSHOT.jar demo.jar
+
+# EXPOSE 8080
+
+# ENTRYPOINT [ "java","-jar","demo.jar" ]
