@@ -1,33 +1,15 @@
-# # Build we are running our app (This is our image)
-# FROM maven:3.8.5-openjdk-17 AS build
-# # Copy everything within our file
-# COPY . .
-# # create our jar
-# RUN mvn clean package
+# Build we are running our app (This is our image)
+FROM maven:3.9.6-eclipse-temurin-22 AS build
+# Copy everything within our file
+COPY . .
+# create our jar
+RUN mvn clean package -DskipTests
 
-# FROM openjdk:17.0.1-jdk-slim
-# # copy our file from movies snapshot into demo.jar
-# COPY --from=build /target/movies-0.0.1-SNAPSHOT.jar demo.jar
-# # export our port
-# EXPOSE 8080
-# # command to run
-# ENTRYPOINT [ "java","-jar","demo.jar" ]
+FROM openjdk:22-jdk
 
-
-FROM openjdk:22-slim
-COPY target/*jar app.jar
-ENTRYPOINT [ "java","-jar","app.jar" ]
-
-# FROM maven:3.9.6 AS Build
-
-# COPY . .
-
-# RUN mvn clean package
-
-# FROM openjdk:22-jdk-slim
-
-# COPY --from=build /target/movies-0.0.1-SNAPSHOT.jar demo.jar
-
-# EXPOSE 8080
-
-# ENTRYPOINT [ "java","-jar","demo.jar" ]
+# copy our file from movies snapshot into demo.jar
+COPY --from=build /target/movies-0.0.1-SNAPSHOT.jar demo.jar
+# export our port
+EXPOSE 8080
+# command to run
+ENTRYPOINT [ "java","-jar","demo.jar" ]

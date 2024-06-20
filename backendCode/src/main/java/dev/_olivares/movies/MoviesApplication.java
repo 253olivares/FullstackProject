@@ -1,8 +1,12 @@
 package dev._olivares.movies;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @SpringBootApplication
 // lets app this is a restapi controller
@@ -24,5 +28,9 @@ public class MoviesApplication {
 	// }
 
 	// code was only for testing
-
+	@CrossOrigin(origins = "http://localhost:5173")
+	@GetMapping("/healthCheck")
+	public ResponseEntity<String> returnServerHealth() {
+		return new ResponseEntity<String>("Server is running!", HttpStatus.ACCEPTED);
+	}
 }
